@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ShoppingBag, Search, Grid, Menu, X, Heart, User, LogOut, ChevronDown } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useStore } from '../context/StoreContext';
+import { products } from '../data/products';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,6 +10,7 @@ const Header = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [recommendations, setRecommendations] = useState([]);
   
   const { cart, cartCount, cartTotal, removeFromCart, isLoggedIn, logout, user } = useStore();
   const navigate = useNavigate();
@@ -21,7 +23,29 @@ const Header = () => {
     if (searchQuery.trim()) {
       navigate(`/shop?search=${searchQuery}`);
       setIsSearchOpen(false);
+      setRecommendations([]);
     }
+  };
+
+  const handleSearchChange = (e) => {
+    const query = e.target.value;
+    setSearchQuery(query);
+    if (query.trim()) {
+      const filtered = products.filter(p => 
+        p.name.toLowerCase().includes(query.toLowerCase()) ||
+        p.category.toLowerCase().includes(query.toLowerCase())
+      ).slice(0, 5);
+      setRecommendations(filtered);
+    } else {
+      setRecommendations([]);
+    }
+  };
+
+  const handleRecommendationClick = (productId) => {
+    navigate(`/product/${productId}`);
+    setIsSearchOpen(false);
+    setSearchQuery('');
+    setRecommendations([]);
   };
 
   const getInitials = (name) => {
@@ -78,17 +102,38 @@ const Header = () => {
           {/* Search */}
           <div className="relative">
             {isSearchOpen ? (
-              <form onSubmit={handleSearch} className="absolute right-0 top-1/2 -translate-y-1/2 bg-white border border-gray-200 rounded-full px-4 py-1 flex items-center shadow-lg w-48 sm:w-64 animate-in slide-in-from-right-4 duration-300">
-                <input 
-                  autoFocus
-                  type="text" 
-                  placeholder="Search products..." 
-                  className="bg-transparent border-none outline-none text-xs flex-1 py-1"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                />
-                <X className="w-3 h-3 text-gray-400 cursor-pointer" onClick={() => setIsSearchOpen(false)} />
-              </form>
+              <div className="absolute right-0 top-1/2 -translate-y-1/2 flex flex-col items-end">
+                <form onSubmit={handleSearch} className="bg-white border border-gray-200 rounded-full px-4 py-1 flex items-center shadow-lg w-48 sm:w-64 animate-in slide-in-from-right-4 duration-300">
+                  <input 
+                    autoFocus
+                    type="text" 
+                    placeholder="Search products..." 
+                    className="bg-transparent border-none outline-none text-xs flex-1 py-1"
+                    value={searchQuery}
+                    onChange={handleSearchChange}
+                  />
+                  <X className="w-3 h-3 text-gray-400 cursor-pointer" onClick={() => { setIsSearchOpen(false); setRecommendations([]); }} />
+                </form>
+                
+                {recommendations.length > 0 && (
+                  <div className="absolute top-full right-0 mt-2 w-64 bg-white border border-gray-100 rounded-2xl shadow-2xl z-50 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
+                    {recommendations.map(product => (
+                      <div 
+                        key={product.id}
+                        onClick={() => handleRecommendationClick(product.id)}
+                        className="flex items-center gap-3 p-3 hover:bg-gray-50 cursor-pointer transition-colors border-b border-gray-50 last:border-0"
+                      >
+                        <img src={product.image} alt={product.name} className="w-10 h-10 object-cover rounded-lg" />
+                        <div className="flex flex-col">
+                          <span className="text-xs font-bold text-slate-900">{product.name}</span>
+                          <span className="text-[10px] text-gray-500">{product.category}</span>
+                        </div>
+                        <span className="ml-auto text-xs font-black text-primary">₹{product.price}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
             ) : (
               <Search 
                 className="w-5 h-5 cursor-pointer text-slate-700 hover:text-primary transition-colors" 
