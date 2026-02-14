@@ -9,28 +9,28 @@ const products = [
     name: 'Bats and ball',
     price: '₹299.00',
     rating: 4,
-    image: '/src/assets/ball and bat.jpg'
+    image: '/assets/ball and bat.jpg'
   },
   {
     id: 2,
     name: 'Professional Helmet',
     price: '₹129.00',
     rating: 5,
-    image: '/src/assets/helmet.jpg'
+    image: '/assets/helmet.jpg'
   },
   {
     id: 3,
     name: 'Elite Cricket Pads',
     price: '₹89.00',
     rating: 4,
-    image: '/src/assets/cricketpads.jpg'
+    image: '/assets/cricketpads.jpg'
   },
   {
     id: 4,
     name: 'Premium Leather Ball',
     price: '₹45.00',
     rating: 5,
-    image: '/src/assets/ball.jpg'
+    image: '/assets/ball.jpg'
   }
 ];
 
@@ -49,7 +49,7 @@ const FeaturedProducts = () => {
     <div className="flex flex-col md:flex-row min-h-[600px]">
       <div className="w-full md:w-1/2 relative group overflow-hidden">
         <img 
-          src="/src/assets/home 6.jpg" 
+          src="/assets/home 6.jpg" 
           alt="Featured" 
           className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
         />
