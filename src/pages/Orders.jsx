@@ -13,7 +13,7 @@ const Orders = () => {
       status: 'Delivered',
       total: 132.00,
       items: [
-        { name: 'Cricket ball', price: 132.00, quantity: 1, image: '/src/assets/ball.jpg' }
+        { name: 'Cricket ball', price: 132.00, quantity: 1, image: '/assets/ball.jpg' }
       ]
     },
     {
@@ -22,7 +22,7 @@ const Orders = () => {
       status: 'Shipped',
       total: 258.00,
       items: [
-        { name: 'Cricket helmet', price: 129.00, quantity: 2, image: '/src/assets/helmet.jpg' }
+        { name: 'Cricket helmet', price: 129.00, quantity: 2, image: '/assets/helmet.jpg' }
       ]
     }
   ];

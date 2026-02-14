@@ -34,7 +34,7 @@ const Footer = () => {
             <Link to="/" className="flex items-center space-x-2">
               <div className="p-0 rounded overflow-hidden">
                 <img 
-                  src="/src/assets/signaturestrokeslogo.png" 
+                  src="/assets/signaturestrokeslogo.png" 
                   alt="Signature Strokes Logo" 
                   className="h-10 w-auto object-contain brightness-0 invert"
                   onError={(e) => {

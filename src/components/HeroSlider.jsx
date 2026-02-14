@@ -7,7 +7,7 @@ import { useNavigate, Link } from 'react-router-dom';
 const slides = [
   {
     id: 1,
-    image: '/src/assets/home 1.jpg',
+    image: '/assets/home 1.jpg',
     subtitle: 'PREMIUM QUALITY CRICKET EQUIPMENT',
     title1: 'Seasonal sales &',
     title2: 'discount',
@@ -17,12 +17,12 @@ const slides = [
       name: 'Cricket ball',
       price: '₹132.00',
       rating: 4,
-      image: '/src/assets/ball.jpg'
+      image: '/assets/ball.jpg'
     }
   },
   {
     id: 2,
-    image: '/src/assets/home 2.jpg',
+    image: '/assets/home 2.jpg',
     subtitle: 'PREMIUM QUALITY CRICKET EQUIPMENT',
     title1: 'Cricket products',
     title2: 'for kids and',
@@ -32,12 +32,12 @@ const slides = [
       name: 'Cricket bails',
       price: '₹59.00',
       rating: 4,
-      image: '/src/assets/bails.jpg'
+      image: '/assets/bails.jpg'
     }
   },
   {
     id: 3,
-    image: '/src/assets/home 3.jpg',
+    image: '/assets/home 3.jpg',
     subtitle: 'PREMIUM QUALITY CRICKET EQUIPMENT',
     title1: 'Professional Gear',
     title2: 'for elite',
@@ -47,12 +47,12 @@ const slides = [
       name: 'Cricket bat',
       price: '₹299.00',
       rating: 5,
-      image: '/src/assets/bat.jpg'
+      image: '/assets/bat.jpg'
     }
   },
   {
     id: 4,
-    image: '/src/assets/home4.jpg',
+    image: '/assets/home4.jpg',
     subtitle: 'EXPLORE OUR COLLECTION',
     title1: 'Master your',
     title2: 'signature',
@@ -62,7 +62,7 @@ const slides = [
       name: 'Cricket helmet',
       price: '₹129.00',
       rating: 4,
-      image: '/src/assets/helmet.jpg'
+      image: '/assets/helmet.jpg'
     }
   }
 ];

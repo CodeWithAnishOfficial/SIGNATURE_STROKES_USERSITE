@@ -36,7 +36,7 @@ const Header = () => {
           <Link to="/" className="flex items-center space-x-2">
             <div className="p-0 rounded overflow-hidden">
               <img 
-                src="/src/assets/signaturestrokeslogo.png" 
+                src="/assets/signaturestrokeslogo.png" 
                 alt="Signature Strokes Logo" 
                 className="h-10 w-auto object-contain"
                 onError={(e) => {

@@ -3,9 +3,9 @@ import { MoveRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const categories = [
-  { name: 'Apparel', image: '/src/assets/bat.jpg' }, 
-  { name: 'Balls', image: '/src/assets/ball.jpg' },
-  { name: 'Bats', image: '/src/assets/home 6.jpg' },
+  { name: 'Apparel', image: '/assets/bat.jpg' }, 
+  { name: 'Balls', image: '/assets/ball.jpg' },
+  { name: 'Bats', image: '/assets/home 6.jpg' },
 ];
 
 const CategoryGrid = () => {
