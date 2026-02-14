@@ -1,11 +1,11 @@
 import React from 'react';
 
 const brands = [
-  { name: 'name1', image: '/src/assets/name1.webp' },
-  { name: 'name2', image: '/src/assets/name2.webp' },
-  { name: 'name3', image: '/src/assets/name3.webp' },
-  { name: 'name4', image: '/src/assets/name4.webp' },
-  { name: 'name5', image: '/src/assets/name5.webp' },
+  { name: 'name1', image: '/assets/name1.webp' },
+  { name: 'name2', image: '/assets/name2.webp' },
+  { name: 'name3', image: '/assets/name3.webp' },
+  { name: 'name4', image: '/assets/name4.webp' },
+  { name: 'name5', image: '/assets/name5.webp' },
 ];
 
 const BrandLogos = () => {
